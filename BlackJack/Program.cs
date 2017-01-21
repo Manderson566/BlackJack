@@ -11,9 +11,16 @@ namespace BlackJack
         static void Main(string[] args)
         {
 
-            List<Card> CreateSpades = new List<Card>();
-            Console.WriteLine(CreateSpades);
-        }
+            DeckBuilder test = new DeckBuilder();
+            
+            foreach(string tests in test.BuildDeck())
+            {
+                Console.WriteLine(tests);
+            }
+           
+
+
+        }   
          
     }
 }
