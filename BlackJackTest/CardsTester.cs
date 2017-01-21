@@ -11,11 +11,10 @@ namespace BlackJackTest
         [TestMethod]
         public void TestSuitReturns()
         {
-            var sut = new Cards();
-            Assert.AreEqual("Spade", sut.GetSpade());
-            Assert.AreEqual("Heart", sut.GetHeart());
-            Assert.AreEqual("Diamond", sut.GetDiamond());
-            Assert.AreEqual("Club", sut.GetClub());
+            var sut = new DeckBuilder();
+            Assert.AreEqual(1, 5, sut.());
+            Assert.AreEqual("Spade", sut.CreateDeck());
+           
 
         }
         [TestMethod]

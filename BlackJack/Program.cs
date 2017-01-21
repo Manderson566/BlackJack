@@ -10,8 +10,10 @@ namespace BlackJack
     {
         static void Main(string[] args)
         {
-    
-                
+
+            List<Card> CreateSpades = new List<Card>();
+            Console.WriteLine(CreateSpades);
         }
+         
     }
 }
