@@ -9,14 +9,11 @@ namespace BlackJack
     public class Card
     {
         public string cardValue { get; set; }
-
-        public string cardSuit { get; set; }
-        public string disc { get; set; }
-        public string jack { get; set; }
-        public string queen { get; set; }
-        public string king { get; set; }
-        public string ace { get; set; }
+        public string[] suit = { "Spades", "Hearts", "Diamonds", "Clubs" };
+        public string[] face = { "Jack", "Queen", "King", "Ace" };       
     }
+    
+
 }
 
 

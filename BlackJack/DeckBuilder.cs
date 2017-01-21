@@ -14,47 +14,59 @@ namespace BlackJack
         {
             Card newCard = new Card();
             int dynamicValue = 2;
-            string cardDescription;
             var deck = new List<String>();
-            for (int i = 1; i < 15; i++)
-               
+            for (int i = 1; i < 15; i++)               
             {
-                newCard.cardSuit = "Spades";
-                newCard.jack = "Jack";
-                newCard.queen = "Queen";
-                newCard.king = "King";
-                newCard.ace = "Ace";
                 newCard.cardValue = dynamicValue.ToString();
                 if (dynamicValue < 10)
-                {
+                { //2-9
                     dynamicValue++;
-                    deck.Add($"The {newCard.cardValue} of {newCard.cardSuit} ");
+                    deck.Add($"The {newCard.cardValue} of {newCard.suit[0]} ");
+                    deck.Add($"The {newCard.cardValue} of {newCard.suit[1]} ");
+                    deck.Add($"The {newCard.cardValue} of {newCard.suit[2]} ");
+                    deck.Add($"The {newCard.cardValue} of {newCard.suit[3]} ");
+
                 }
                 else if (dynamicValue == 10 && i == 10)
-                {
+                { //10s
                     dynamicValue = 10;
-                    deck.Add($"The {newCard.cardValue} of {newCard.cardSuit} ");
+                    deck.Add($"The {newCard.cardValue} of {newCard.suit[0]} ");
+                    deck.Add($"The {newCard.cardValue} of {newCard.suit[1]} ");
+                    deck.Add($"The {newCard.cardValue} of {newCard.suit[2]} ");
+                    deck.Add($"The {newCard.cardValue} of {newCard.suit[3]} ");
 
                 }
                 else if (dynamicValue == 10 && i == 11)
-                {
+                { //Jacks
                     dynamicValue = 10;
-                    deck.Add($"The {newCard.jack} of {newCard.cardSuit} ");
+                    deck.Add($"The {newCard.face[0]} of {newCard.suit[0]} ");
+                    deck.Add($"The {newCard.face[0]} of {newCard.suit[1]} ");
+                    deck.Add($"The {newCard.face[0]} of {newCard.suit[2]} ");
+                    deck.Add($"The {newCard.face[0]} of {newCard.suit[3]} ");
                 }
                 else if (dynamicValue == 10 && i == 12)
-                {
+                { //Queens
                     dynamicValue = 10;
-                    deck.Add($"The {newCard.queen} of {newCard.cardSuit} ");
+                    deck.Add($"The {newCard.face[1]} of {newCard.suit[0]} ");
+                    deck.Add($"The {newCard.face[1]} of {newCard.suit[1]} ");
+                    deck.Add($"The {newCard.face[1]} of {newCard.suit[2]} ");
+                    deck.Add($"The {newCard.face[1]} of {newCard.suit[3]} ");
                 }
                 else if (dynamicValue == 10 && i == 13)
-                {
+                { //Kings
                     dynamicValue = 10;
-                    deck.Add($"The {newCard.king} of {newCard.cardSuit} ");
+                    deck.Add($"The {newCard.face[2]} of {newCard.suit[0]} ");
+                    deck.Add($"The {newCard.face[2]} of {newCard.suit[1]} ");
+                    deck.Add($"The {newCard.face[2]} of {newCard.suit[2]} ");
+                    deck.Add($"The {newCard.face[2]} of {newCard.suit[3]} ");
                 }
                 else if (dynamicValue == 10 && i == 14)
-                {
+                { //Ace
                     dynamicValue = 11;
-                    deck.Add($"The {newCard.ace} of {newCard.cardSuit} ");
+                    deck.Add($"The {newCard.face[3]} of {newCard.suit[0]} ");
+                    deck.Add($"The {newCard.face[3]} of {newCard.suit[1]} ");
+                    deck.Add($"The {newCard.face[3]} of {newCard.suit[2]} ");
+                    deck.Add($"The {newCard.face[3]} of {newCard.suit[3]} ");
                 }
 
             }
