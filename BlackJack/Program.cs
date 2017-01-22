@@ -12,12 +12,16 @@ namespace BlackJack
         {
 
             DeckBuilder test = new DeckBuilder();
-            string newCard = test.RandomCard();
-            Console.WriteLine(newCard);
+            List<string> newCard = test.BuildDeck();
+            foreach(var card in newCard)
+            {
+                Console.WriteLine(card);
+            }
+            
 
 
 
-        }   
-         
+        }
+
     }
 }

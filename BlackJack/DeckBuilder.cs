@@ -11,13 +11,14 @@ namespace BlackJack
 {
     public class DeckBuilder : Card
     {
+
         public List<string> BuildDeck()
         {
-            
+
             Card newCard = new Card();
             int dynamicValue = 2;
             var deck = new List<String>();
-            for (int i = 1; i < 15; i++)               
+            for (int i = 1; i < 15; i++)
             {
                 newCard.cardValue = dynamicValue.ToString();
                 if (dynamicValue < 10)
@@ -70,30 +71,28 @@ namespace BlackJack
                     deck.Add($"The {newCard.face[3]} of {newCard.suit[2]} ");
                     deck.Add($"The {newCard.face[3]} of {newCard.suit[3]} ");
                 }
-                
-                
+
+
             }
+            Random rnd = new Random();
+            List<string> rndDeck = deck.OrderBy(x => rnd.Next()).ToList();
             string deckfile = (@"..\..\Deck.txt");
-            File.WriteAllLines(deckfile, deck);
-            return deck;
+            File.WriteAllLines(deckfile, rndDeck);
 
-
-        }
-        public string rndObject;
-      
-
-        public string RandomCard()
-        {
-            
-            string[] pulledWordArray = File.ReadAllLines(@"..\\..\\Deck.txt");
-            List<string> pulledWordList = pulledWordArray.ToList<string>();
-            var rng = new Random();
-            int randomThing = rng.Next(pulledWordList.Count);
+            string[] pulledCard = File.ReadAllLines(@"..\\..\\Deck.txt");
+            List<String> pulledWordList = pulledCard.ToList<string>();
+           
+            int randomThing = rnd.Next(pulledWordList.Count);
             string randomObject = pulledWordList[randomThing];
-            rndObject = randomObject;
-            return rndObject;
+            string rndObject = randomObject.ToString();
+            return pulledWordList;
+
+
         }
-       
+
+
+     
+
 
 
 
@@ -101,11 +100,3 @@ namespace BlackJack
 
 
 }
-
-
-
-
-
-
-
-

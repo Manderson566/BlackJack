@@ -12,10 +12,6 @@ namespace BlackJack
         public string[] suit = { "Spades", "Hearts", "Diamonds", "Clubs" };
         public string[] face = { "Jack", "Queen", "King", "Ace" };
 
-        public static implicit operator Card(string v)
-        {
-            throw new NotImplementedException();
-        }
     }
     
 
