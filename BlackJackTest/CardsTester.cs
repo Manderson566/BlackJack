@@ -15,7 +15,7 @@ namespace BlackJackTest
 
             foreach (string tests in test.BuildDeck())
             {                
-                Assert.AreEqual("The 2 of Spades", "The 3 of Spades", "The 4 of Spades", "The 5 of Spades",
+                Assert.ReferenceEquals("The 2 of Spades", "The 3 of Spades", "The 4 of Spades", "The 5 of Spades",
                     "The 6 of Spades", "The 7 of Spades", "The 8 of Spades", "The 9 of Spades", "The 10 of Spades",
                     "The Jack of Spades", "The Queen of Spades", "The King of Spades", "The Ace of Spades", tests);
             }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BlackJack;
+using System.IO;
 
 
 namespace BlackJack
@@ -12,6 +13,7 @@ namespace BlackJack
     {
         public List<string> BuildDeck()
         {
+            
             Card newCard = new Card();
             int dynamicValue = 2;
             var deck = new List<String>();
@@ -68,11 +70,31 @@ namespace BlackJack
                     deck.Add($"The {newCard.face[3]} of {newCard.suit[2]} ");
                     deck.Add($"The {newCard.face[3]} of {newCard.suit[3]} ");
                 }
-
+                
+                
             }
-            return deck;      
+            string deckfile = (@"..\..\Deck.txt");
+            File.WriteAllLines(deckfile, deck);
+            return deck;
+
+
         }
-           
+        public string rndObject;
+      
+
+        public string RandomCard()
+        {
+            
+            string[] pulledWordArray = File.ReadAllLines(@"..\\..\\Deck.txt");
+            List<string> pulledWordList = pulledWordArray.ToList<string>();
+            var rng = new Random();
+            int randomThing = rng.Next(pulledWordList.Count);
+            string randomObject = pulledWordList[randomThing];
+            rndObject = randomObject;
+            return rndObject;
+        }
+       
+
 
 
     }
