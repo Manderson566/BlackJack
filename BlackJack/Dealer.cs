@@ -9,6 +9,8 @@ namespace BlackJack
 {
     class Dealer: DeckBuilder
     {
+        public List<string> DealerHand = new List<string>();
+
         public string DealCard()
         {
             if (new FileInfo(@"..\..\Deck.txt").Length == 0)
