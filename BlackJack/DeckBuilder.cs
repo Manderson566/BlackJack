@@ -12,7 +12,7 @@ namespace BlackJack
     public class DeckBuilder : Card
     {
 
-        public List<string> BuildDeck()
+        public string BuildDeck()
         {
 
             Card newCard = new Card();
@@ -78,14 +78,10 @@ namespace BlackJack
             List<string> rndDeck = deck.OrderBy(x => rnd.Next()).ToList();
             string deckfile = (@"..\..\Deck.txt");
             File.WriteAllLines(deckfile, rndDeck);
+            string pulledCard = File.ReadLines(@"..\..\Deck.txt").First();
+            return pulledCard;
 
-            string[] pulledCard = File.ReadAllLines(@"..\\..\\Deck.txt");
-            List<String> pulledWordList = pulledCard.ToList<string>();
-           
-            int randomThing = rnd.Next(pulledWordList.Count);
-            string randomObject = pulledWordList[randomThing];
-            string rndObject = randomObject.ToString();
-            return pulledWordList;
+
 
 
         }

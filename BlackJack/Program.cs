@@ -11,12 +11,10 @@ namespace BlackJack
         static void Main(string[] args)
         {
 
-            DeckBuilder test = new DeckBuilder();
-            List<string> newCard = test.BuildDeck();
-            foreach(var card in newCard)
-            {
-                Console.WriteLine(card);
-            }
+            Dealer test = new Dealer();
+            string newCard = test.DealCard();
+            Console.WriteLine(newCard);
+          
             
 
 
