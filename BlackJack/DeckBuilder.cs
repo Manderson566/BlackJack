@@ -9,10 +9,26 @@ using System.IO;
 
 namespace BlackJack
 {
-   
+    public enum State
+    {
+        two, 
+        three,
+        four, 
+        five,
+        six,
+        seven,
+        eight,
+        nine,
+        ten,
+        faceCard,
+        Ace 
+    }
+
     public class DeckBuilder : Card
     {
-        
+        State currentState;
+
+
         public int DynamicValue;
         
 
@@ -83,8 +99,25 @@ namespace BlackJack
                     deck.Add($"The {newCard.face[3]} of {newCard.suit[2]} ");
                     deck.Add($"The {newCard.face[3]} of {newCard.suit[3]} ");
                 }
+               
 
               
+            }
+            if (dynamicValue == 2)
+            {
+                currentState = State.two;
+            }
+           else if (dynamicValue == 3)
+            {
+                currentState = State.three;
+            }
+            else if (dynamicValue == 4)
+            {
+                currentState = State.four;
+            }
+            else if (dynamicValue == 5)
+            {
+                currentState = State.five;
             }
             Random rnd = new Random();
             List<string> rndDeck = deck.OrderBy(x => rnd.Next()).ToList();
