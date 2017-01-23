@@ -11,10 +11,11 @@ namespace BlackJack
 
     class Program
     {
-        State currentState;
+        
 
         static void Main(string[] args)
         {
+            State currentState;
             DeckBuilder drawcard = new DeckBuilder();
             string reshuffle = drawcard.BuildDeck();
             //^^ Resuffles Deck
@@ -57,15 +58,68 @@ namespace BlackJack
             string askForHit = Console.ReadLine();
             while (askForHit.ToUpper() == "Y")
             {
+                int counter = 0;
+                int totalValue = 0;
                 string newCard = deal.DealCard();
-                hand.Player1Hand.Add(newCard);
                 Console.WriteLine("Do You Want To Hit?");
                 Console.WriteLine("Your Cards Are");
                 foreach (var card in displayHand)
-                {    
+                {
+                    counter = 0;
                     Console.WriteLine(card);
-                }
+                    if (card.Contains('2'))
+                    {
+                        counter = 2;
+                    }
+                    else if (card.Contains('3'))
+                    {
+                        counter = 3;
+                    }
+                    else if (card.Contains('4'))
+                    {
+                        counter = 4;
+                    }
+                    else if (card.Contains('5'))
+                    {
+                        counter = 5;
+                    }
+                    else if (card.Contains('6'))
+                    {
+                        counter = 6;
+                    }
+                    else if (card.Contains('7'))
+                    {
+                        counter = 7;
+                    }
+                    else if (card.Contains('8'))
+                    {
+                        counter = 8;
+                    }
+                    else if (card.Contains('9'))
+                    {
+                        counter = 9;
+                    }
+                    else if (card.Contains('1'))
+                    {
+                        counter = 10;
+                    }
+                    else if (card.Contains('J'))
+                    {
+                        counter = 10;
+                    }
+                    else if (card.Contains('A'))
+                    {
+                        counter = 10;
+                    }
+                    for (int i = 0; i < counter; i++)
+                    {
+                        totalValue++;
+                    }
+                }                               
                 askForHit = Console.ReadLine();
+                Console.Clear();
+                hand.Player1Hand.Add(newCard);
+               
                 
            
 
