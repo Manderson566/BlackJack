@@ -8,38 +8,16 @@ using System.IO;
 
 
 namespace BlackJack
-{
-    public enum State
-    {
-        two, 
-        three,
-        four, 
-        five,
-        six,
-        seven,
-        eight,
-        nine,
-        ten,
-        faceCard,
-        Ace 
-    }
-
+{  
     public class DeckBuilder : Card
-    {
-        State currentState;
-
-
-        public int DynamicValue;
-        
-
+    {        
         public List<string> Deck = new List<string>();
         public string BuildDeck()
         {
-
             Card newCard = new Card();
             int dynamicValue = 2;
             var deck = Deck;
-            
+
             for (int i = 1; i < 15; i++)
             {
                 newCard.cardValue = dynamicValue.ToString();
@@ -51,12 +29,11 @@ namespace BlackJack
                     deck.Add($"The {newCard.cardValue} of {newCard.suit[1]} ");
                     deck.Add($"The {newCard.cardValue} of {newCard.suit[2]} ");
                     deck.Add($"The {newCard.cardValue} of {newCard.suit[3]} ");
-
                 }
                 else if (dynamicValue == 10 && i == 10)
                 { //10s
                     dynamicValue = 10;
-                  
+
                     deck.Add($"The {newCard.cardValue} of {newCard.suit[0]} ");
                     deck.Add($"The {newCard.cardValue} of {newCard.suit[1]} ");
                     deck.Add($"The {newCard.cardValue} of {newCard.suit[2]} ");
@@ -66,7 +43,7 @@ namespace BlackJack
                 else if (dynamicValue == 10 && i == 11)
                 { //Jacks
                     dynamicValue = 10;
-                   
+
                     deck.Add($"The {newCard.face[0]} of {newCard.suit[0]} ");
                     deck.Add($"The {newCard.face[0]} of {newCard.suit[1]} ");
                     deck.Add($"The {newCard.face[0]} of {newCard.suit[2]} ");
@@ -75,7 +52,7 @@ namespace BlackJack
                 else if (dynamicValue == 10 && i == 12)
                 { //Queens
                     dynamicValue = 10;
-                  
+
                     deck.Add($"The {newCard.face[1]} of {newCard.suit[0]} ");
                     deck.Add($"The {newCard.face[1]} of {newCard.suit[1]} ");
                     deck.Add($"The {newCard.face[1]} of {newCard.suit[2]} ");
@@ -84,7 +61,7 @@ namespace BlackJack
                 else if (dynamicValue == 10 && i == 13)
                 { //Kings
                     dynamicValue = 10;
-                   
+
                     deck.Add($"The {newCard.face[2]} of {newCard.suit[0]} ");
                     deck.Add($"The {newCard.face[2]} of {newCard.suit[1]} ");
                     deck.Add($"The {newCard.face[2]} of {newCard.suit[2]} ");
@@ -93,52 +70,20 @@ namespace BlackJack
                 else if (dynamicValue == 10 && i == 14)
                 { //Ace
                     dynamicValue = 11;
-                   
+
                     deck.Add($"The {newCard.face[3]} of {newCard.suit[0]} ");
                     deck.Add($"The {newCard.face[3]} of {newCard.suit[1]} ");
                     deck.Add($"The {newCard.face[3]} of {newCard.suit[2]} ");
                     deck.Add($"The {newCard.face[3]} of {newCard.suit[3]} ");
                 }
-               
-
-              
             }
-            if (dynamicValue == 2)
-            {
-                currentState = State.two;
-            }
-           else if (dynamicValue == 3)
-            {
-                currentState = State.three;
-            }
-            else if (dynamicValue == 4)
-            {
-                currentState = State.four;
-            }
-            else if (dynamicValue == 5)
-            {
-                currentState = State.five;
-            }
-            Random rnd = new Random();
-            List<string> rndDeck = deck.OrderBy(x => rnd.Next()).ToList();
-            string deckfile = (@"..\..\Deck.txt");
-            File.WriteAllLines(deckfile, rndDeck);
-            string pulledCard = File.ReadLines(@"..\..\Deck.txt").First();
-            return pulledCard;
-           
+                Random rnd = new Random();
+                List<string> rndDeck = deck.OrderBy(x => rnd.Next()).ToList();
+                string deckfile = (@"..\..\Deck.txt");
+                File.WriteAllLines(deckfile, rndDeck);
+                string pulledCard = File.ReadLines(@"..\..\Deck.txt").First();
 
-
-
-
+                return pulledCard;
         }
-
-
-     
-
-
-
-
     }
-
-
 }

@@ -10,7 +10,6 @@ namespace BlackJack
     {
         int money = 100;
         int PlayerNumber = 5;
-        public List<string> Player1Hand = new List<string>();
-        
+        public List<string> Player1Hand = new List<string>();        
     }
 }

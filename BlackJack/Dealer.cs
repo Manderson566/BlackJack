@@ -10,7 +10,6 @@ namespace BlackJack
     class Dealer: DeckBuilder
     {
         public List<string> DealerHand = new List<string>();
-
         public string DealCard()
         {
             if (new FileInfo(@"..\..\Deck.txt").Length == 0)
@@ -24,9 +23,7 @@ namespace BlackJack
             cardList.RemoveAt(0);
             File.WriteAllLines(@"..\..\Deck.txt", cardList.ToArray());
           
-                return firstCard;
-
-            
+                return firstCard;            
         }
     }
 }

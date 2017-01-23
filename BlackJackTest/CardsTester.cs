@@ -19,10 +19,6 @@ namespace BlackJackTest
                     "The 6 of Spades", "The 7 of Spades", "The 8 of Spades", "The 9 of Spades", "The 10 of Spades",
                     "The Jack of Spades", "The Queen of Spades", "The King of Spades", "The Ace of Spades", tests);
             }
-
-
-
-
         }
         [TestMethod]
         public void CheckCardsPerSuit()
